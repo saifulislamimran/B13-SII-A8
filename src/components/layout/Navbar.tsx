@@ -27,7 +27,7 @@ export default function Navbar() {
           <Link href="/" className="text-orange-500 border-b-2 border-orange-500 font-bold font-inter tracking-tight hover:backdrop-blur-2xl hover:scale-105 transition-all duration-300">
             Home
           </Link>
-          <Link href="#" className="text-slate-700 dark:text-slate-200 font-medium hover:text-orange-400 font-inter tracking-tight hover:backdrop-blur-2xl hover:scale-105 transition-all duration-300">
+          <Link href="/products" className="text-slate-700 dark:text-slate-200 font-medium hover:text-orange-400 font-inter tracking-tight hover:backdrop-blur-2xl hover:scale-105 transition-all duration-300">
             Products
           </Link>
           <Link href="/profile" className="text-slate-700 dark:text-slate-200 font-medium hover:text-orange-400 font-inter tracking-tight hover:backdrop-blur-2xl hover:scale-105 transition-all duration-300">
