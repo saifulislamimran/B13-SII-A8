@@ -30,8 +30,8 @@ export default function RegisterPage() {
     if (error) {
       toast.error(error.message || "Failed to register. Please try again.");
     } else {
-      toast.success("Successfully registered! Welcome to SunCart.");
-      router.push("/"); // Redirect home after registration
+      toast.success("Successfully registered! Please log in.");
+      router.push("/login"); // Redirect login after registration
     }
   };
 

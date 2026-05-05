@@ -1,46 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
-import toast from "react-hot-toast";
+import Link from "next/link";
 
 export default function ProfilePage() {
   const { data: session, isPending } = authClient.useSession();
   const router = useRouter();
 
-  const [name, setName] = useState("");
-  const [image, setImage] = useState("");
-  const [isUpdating, setIsUpdating] = useState(false);
-
   // Protected route logic
   useEffect(() => {
     if (!isPending && !session) {
       router.push("/login");
-    } else if (session) {
-      setName(session.user.name || "");
-      setImage(session.user.image || "");
     }
   }, [session, isPending, router]);
-
-  const handleUpdate = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsUpdating(true);
-
-    const { data, error } = await authClient.updateUser({
-      name,
-      image: image || undefined,
-    });
-
-    setIsUpdating(false);
-
-    if (error) {
-      toast.error(error.message || "Failed to update profile.");
-    } else {
-      toast.success("Profile updated successfully!");
-      router.refresh();
-    }
-  };
 
   if (isPending || !session) {
     return (
@@ -51,74 +25,104 @@ export default function ProfilePage() {
   }
 
   return (
-    <main className="min-h-screen pt-32 pb-12 px-margin-mobile md:px-margin-desktop flex justify-center">
-      <div className="glass-panel w-full max-w-2xl rounded-2xl p-8 md:p-12 shadow-xl animate__animated animate__fadeIn relative overflow-hidden">
-        {/* Background Decorative Blob */}
-        <div className="absolute top-[-20%] right-[-10%] w-64 h-64 bg-primary-fixed blur-[80px] rounded-full opacity-30 pointer-events-none"></div>
-
-        <header className="mb-10 text-center relative z-10">
-          <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg bg-white/50">
-            <img 
-              src={image || "https://api.dicebear.com/7.x/avataaars/svg?seed=" + (session?.user?.name || "User")} 
-              alt="Profile Picture" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <h1 className="font-headline-lg text-headline-lg text-on-surface mb-2">My Profile</h1>
-          <p className="text-on-surface-variant font-body-md bg-white/40 inline-block px-4 py-1 rounded-full">{session.user.email}</p>
-        </header>
-
-        <form onSubmit={handleUpdate} className="space-y-6 relative z-10">
-          <div className="space-y-2">
-            <label className="font-label-bold text-label-bold text-on-surface-variant ml-1" htmlFor="name">Display Name</label>
-            <div className="relative">
-              <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">person</span>
-              <input 
-                type="text" 
-                id="name" 
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="w-full bg-white/50 border-outline-variant rounded-lg py-3 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none"
+    <main className="min-h-screen pt-32 pb-12 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Sidebar / Profile Card */}
+        <div className="lg:col-span-4 space-y-6">
+          <div className="glass-panel rounded-2xl p-8 shadow-xl relative overflow-hidden flex flex-col items-center bg-white/20 dark:bg-black/40 border-white/20">
+            <div className="absolute top-[-20%] right-[-10%] w-32 h-32 bg-primary-fixed blur-[60px] rounded-full opacity-20 pointer-events-none"></div>
+            
+            <div className="w-32 h-32 mb-6 rounded-full overflow-hidden border-4 border-white/10 shadow-lg bg-white/5 group relative">
+              <img 
+                src={session.user.image || "https://api.dicebear.com/7.x/avataaars/svg?seed=" + (session?.user?.name || "User")} 
+                alt="Profile Picture" 
+                className="w-full h-full object-cover transition-transform group-hover:scale-110"
               />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                <span className="material-symbols-outlined text-white">photo_camera</span>
+              </div>
+            </div>
+            
+            <h1 className="font-headline-md text-slate-900 dark:text-white mb-1">{session.user.name}</h1>
+            <p className="text-slate-600 dark:text-slate-400 font-body-md mb-6">{session.user.email}</p>
+            
+            <div className="w-full space-y-3">
+              <Link href="/profile/update" className="w-full sunset-gradient py-3 rounded-xl text-white font-label-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-lg">
+                <span className="material-symbols-outlined text-sm">edit</span>
+                Edit Profile
+              </Link>
+              <button className="w-full glass-panel py-3 rounded-xl text-slate-700 dark:text-slate-300 font-label-bold flex items-center justify-center gap-2 hover:bg-black/5 dark:hover:bg-white/5 transition-all border-slate-200 dark:border-white/10">
+                <span className="material-symbols-outlined text-sm">settings</span>
+                Account Settings
+              </button>
+            </div>
+          </div>
+          
+          <div className="glass-panel rounded-2xl p-6 bg-white/20 dark:bg-black/40 border-white/20">
+            <h3 className="font-label-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+              <span className="material-symbols-outlined text-orange-400">workspace_premium</span>
+              SunClub Membership
+            </h3>
+            <div className="bg-black/5 dark:bg-white/5 rounded-xl p-4 border border-slate-100 dark:border-white/5">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Tier Status</span>
+                <span className="text-sm font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider">Gold</span>
+              </div>
+              <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+                <div className="h-full sunset-gradient w-[75%]"></div>
+              </div>
+              <p className="text-[10px] text-slate-500 mt-2 text-center">250 points until Platinum status</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Dashboard Content */}
+        <div className="lg:col-span-8 space-y-8">
+          {/* Quick Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { label: 'Total Orders', value: '12', icon: 'shopping_cart' },
+              { label: 'Wishlist', value: '24', icon: 'favorite' },
+              { label: 'SunPoints', value: '1,250', icon: 'stars' },
+              { label: 'Coupons', value: '3', icon: 'confirmation_number' }
+            ].map((stat) => (
+              <div key={stat.label} className="glass-panel p-4 rounded-xl bg-white/40 dark:bg-black/20 border-white/20 dark:border-white/5 hover:bg-white/50 dark:hover:bg-black/30 transition-all cursor-default">
+                <span className="material-symbols-outlined text-orange-500 dark:text-orange-400 mb-2">{stat.icon}</span>
+                <p className="text-2xl font-black text-slate-900 dark:text-white">{stat.value}</p>
+                <p className="text-[10px] text-slate-500 dark:text-slate-500 uppercase tracking-widest">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Activity Section */}
+          <div className="glass-panel rounded-2xl p-8 bg-white/20 dark:bg-black/40 border-white/20 dark:border-white/10 min-h-[300px]">
+            <h2 className="font-headline-md text-slate-900 dark:text-white mb-6">Recent Activity</h2>
+            <div className="space-y-6">
+              {[1, 2].map((i) => (
+                <div key={i} className="flex gap-4 items-center p-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-all cursor-pointer group">
+                  <div className="w-16 h-16 rounded-lg bg-black/5 dark:bg-white/5 overflow-hidden flex-shrink-0">
+                    <img src={i === 1 ? "https://lh3.googleusercontent.com/aida/ADBb0ugyhwtCGBySHuNo7Wt-0-5Mi-IrGDmWHaySSjKSiirgtgr0oFdiv2mT1-_tTFfkVM1ueFbwwUr3FutbWVM0ZCQXGqbLeaWdCPF4HtywuSXUg6XcX6VYXhEEKC19A24UwrbZwDaHgW2TT04Vqc8wfRRFopma-LEtJPFf8cP2m4VL5MbSBG3ix8GsRhwwburovGKo6qy30cw3BA2fcWckl7a9NZtEpyKr_aAKWv_0wyNCFORxd6B4Vorl9iJgMpdBuP4YHPTlTUSs_W0" : "https://lh3.googleusercontent.com/aida/ADBb0ug6SM5NO0Q_nXzt5uFc-GihTttiYA4N5jkPWRxO1NDju-N3KR2GLgR_ps_3_IyD1TngBGUGlOnqwau9-Svg5BbK2ko2L77LLZHyPdwjaD0Rfvd4h7Sdy-n2tUX2sqfD3w4xj7ewIeAzZMiZL8c7csfs5ZoRg00rn0RIsIQTHwKGB3eBNLPP7nJoApKrVoXa7rlVDGrgJUFEJiC1q4Y3RvSwtxPlRguGwAVrUY_LGytYy8kbTgzorAsfME_Fahb2oXoIwDixFWHizIQ"} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="flex-grow">
+                    <p className="text-slate-900 dark:text-white font-bold">{i === 1 ? 'Order Delivered' : 'Item in Wishlist'}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-500">Premium Beach Set • 2 days ago</p>
+                  </div>
+                  <span className="material-symbols-outlined text-slate-400 dark:text-slate-600 group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">chevron_right</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="space-y-2">
-            <label className="font-label-bold text-label-bold text-on-surface-variant ml-1" htmlFor="image">Profile Picture URL</label>
-            <div className="relative">
-              <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">image</span>
-              <input 
-                type="url" 
-                id="image" 
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-                placeholder="https://example.com/avatar.png"
-                className="w-full bg-white/50 border-outline-variant rounded-lg py-3 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none"
-              />
+          {/* Featured Recommendation */}
+          <div className="relative rounded-2xl overflow-hidden group cursor-pointer">
+            <img src="https://lh3.googleusercontent.com/aida/ADBb0ugE-aeS3p2djkMcxuglYVqPW85r1zGumTGeFDEx83p-A3rw6TAzf2ksglv0ZjtAHGqhRTWaArRTYTfAF5Eqzn2oRsoHTFibUHQ8GGCcrpj3HLZTmefNvqrpu1GeUD07h2DK_fUXcqNYRCsQHwkmtBxZ264s9hsqSttvmxt7Tvg1FxHeUMHh2BjbiSHPqLaVlwSpeHBXxaLau3_4rZaMd-dhs5fGatPDiBSPQWGnBsV459qcajLiXWnHErEg6TFii6Ujj75_T2kCA4o" className="w-full h-48 object-cover brightness-50 group-hover:scale-105 transition-transform duration-700" />
+            <div className="absolute inset-0 p-8 flex flex-col justify-center">
+              <p className="text-orange-400 font-label-bold text-[10px] tracking-widest uppercase mb-2">Featured Summer Pick</p>
+              <h3 className="text-2xl font-black text-white mb-4">The Coastal Collection</h3>
+              <button className="w-fit px-6 py-2 rounded-full border border-white/20 text-white text-xs font-bold backdrop-blur-md hover:bg-white hover:text-black transition-all">Shop the Look</button>
             </div>
           </div>
-
-          <div className="pt-6 border-t border-white/20 flex justify-end gap-4">
-            <button 
-              type="button" 
-              onClick={() => {
-                setName(session.user.name || "");
-                setImage(session.user.image || "");
-              }}
-              className="px-6 py-3 rounded-full font-label-bold text-on-surface hover:bg-white/40 transition-colors"
-            >
-              Reset
-            </button>
-            <button 
-              type="submit" 
-              disabled={isUpdating || (name === session.user.name && image === (session.user.image || ""))}
-              className="sunset-gradient px-8 py-3 rounded-full text-white font-label-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
-            >
-              {isUpdating ? "Saving..." : "Save Changes"}
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
     </main>
   );

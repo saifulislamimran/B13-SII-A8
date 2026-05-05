@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import productsData from "../../public/data/products.json";
+import FloatingCartButton from "@/components/cart/FloatingCartButton";
+import AddToCartButton from "@/components/cart/AddToCartButton";
 
 export default function Home() {
   // Get first 3 products for the popular section
@@ -12,29 +14,29 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-40 grayscale-[20%]"
             alt="Luxury infinity pool"
             src="https://lh3.googleusercontent.com/aida/ADBb0uhE-aeS3p2djkMcxuglYVqPW85r1zGumTGeFDEx83p-A3rw6TAzf2ksglv0ZjtAHGqhRTWaArRTYTfAF5Eqzn2oRsoHTFibUHQ8GGCcrpj3HLZTmefNvqrpu1GeUD07h2DK_fUXcqNYRCsQHwkmtBxZ264s9hsqSttvmxt7Tvg1FxHeUMHh2BjbiSHPqLaVlwSpeHBXxaLau3_4rZaMd-dhs5fGatPDiBSPQWGnBsV459qcajLiXWnHErEg6TFii6Ujj75_T2kCA4o"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background"></div>
         </div>
         <div className="relative z-10 text-center max-w-4xl glass-panel p-8 md:p-16 rounded-[2rem] shadow-2xl animate__animated animate__fadeInUp">
           <div className="inline-block px-4 py-1 rounded-full bg-primary-container text-on-primary-container font-label-bold text-label-bold mb-6 animate__animated animate__pulse animate__infinite">
             HOT DEALS 🔥
           </div>
           <h1 className="font-display-xl text-display-xl text-primary mb-6 leading-[1.1] animate__animated animate__fadeInLeft animate__delay-1s">
-            Summer Sale<br /><span className="text-on-surface">50% OFF</span>
+            Summer Sale<br /><span className="text-slate-900 dark:text-white">50% OFF</span>
           </h1>
-          <p className="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto animate__animated animate__fadeInRight animate__delay-1s">
+          <p className="font-body-lg text-body-lg text-slate-700 dark:text-slate-200 mb-10 max-w-2xl mx-auto animate__animated animate__fadeInRight animate__delay-1s">
             Dive into the season with our curated collection of luxury beachwear, sun protection, and coastal accessories designed for your best summer yet.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center animate__animated animate__fadeInUp animate__delay-2s">
-            <button className="sunset-gradient text-white font-label-bold py-4 px-10 rounded-full hover-glow flex items-center justify-center gap-2 transition-all">
+            <Link href="/products" className="sunset-gradient text-white font-label-bold py-4 px-10 rounded-full hover-glow flex items-center justify-center gap-2 transition-all">
               Shop Now <span className="material-symbols-outlined">arrow_forward</span>
-            </button>
-            <button className="glass-panel border-2 border-primary text-primary font-label-bold py-4 px-10 rounded-full hover:bg-primary/5 transition-colors">
+            </Link>
+            <Link href="/products" className="glass-panel border-2 border-primary text-primary dark:text-orange-400 font-label-bold py-4 px-10 rounded-full hover:bg-primary/5 transition-colors flex items-center justify-center">
               View Lookbook
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -57,10 +59,10 @@ export default function Home() {
               <div className="h-80 overflow-hidden relative">
                 <img
                   alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 brightness-90"
                   src={product.image}
                 />
-                <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full text-primary">
+                <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-md p-2 rounded-full text-primary border border-white/10 shadow-md">
                   <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
                 </div>
               </div>
@@ -75,9 +77,15 @@ export default function Home() {
                 <h3 className="font-headline-md text-headline-md text-on-surface mb-2">{product.name}</h3>
                 <div className="flex justify-between items-center mt-auto pt-4">
                   <span className="text-primary font-bold text-xl">${product.price.toFixed(2)}</span>
-                  <Link href={`/product/${product.id}`} className="bg-primary text-white px-4 py-2 rounded-lg flex items-center justify-center text-sm font-bold hover:bg-orange-700 transition-colors">
-                    View Details
-                  </Link>
+                  <div className="flex items-center gap-2">
+                    <Link href={`/product/${product.id}`} className="bg-primary text-white px-4 py-2 rounded-lg flex items-center justify-center text-sm font-bold hover:bg-orange-700 transition-colors">
+                      View
+                    </Link>
+                    <AddToCartButton 
+                      product={{ ...product, quantity: 1 }} 
+                      className="bg-secondary text-white p-2 rounded-lg flex items-center justify-center hover:bg-secondary-container transition-colors shadow-none transform-none" 
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -86,10 +94,10 @@ export default function Home() {
       </section>
 
       {/* Summer Care Tips */}
-      <section className="py-stack-lg bg-secondary-container/30 backdrop-blur-sm border-y border-white/20 px-margin-mobile md:px-margin-desktop">
+      <section className="py-stack-lg bg-black/20 backdrop-blur-sm border-y border-white/10 px-margin-mobile md:px-margin-desktop">
         <div className="container mx-auto text-center max-w-3xl mb-16">
-          <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">Elevate Your Summer Glow</h2>
-          <p className="font-body-md text-body-md text-on-surface-variant">Expert hydration and skincare advice for the ultimate coastal lifestyle.</p>
+          <h2 className="font-headline-lg text-headline-lg text-slate-800 dark:text-slate-100 mb-4">Elevate Your Summer Glow</h2>
+          <p className="font-body-md text-body-md text-slate-600 dark:text-slate-400">Expert hydration and skincare advice for the ultimate coastal lifestyle.</p>
         </div>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="flex gap-6 items-start glass-panel p-8 rounded-2xl">
@@ -118,22 +126,17 @@ export default function Home() {
       {/* Top Brands */}
       <section className="py-stack-lg px-margin-mobile md:px-margin-desktop container mx-auto">
         <h3 className="text-center text-slate-400 font-label-bold text-label-bold uppercase tracking-[0.2em] mb-12">Partners in Paradise</h3>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center opacity-60">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center opacity-80">
           {['LUMINA', 'AZURE', 'CORAL', 'SOLEIL', 'TROPIC'].map((brand) => (
-            <div key={brand} className="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-              <span className="text-2xl font-extrabold text-on-surface-variant">{brand}</span>
+            <div key={brand} className="flex justify-center grayscale brightness-200 hover:grayscale-0 transition-all cursor-pointer">
+              <span className="text-2xl font-extrabold text-slate-300">{brand}</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* Floating Cart Button */}
-      <button className="fixed bottom-8 right-8 w-16 h-16 rounded-full sunset-gradient text-white shadow-2xl flex items-center justify-center z-50 hover:scale-110 transition-transform active:scale-95">
-        <span className="material-symbols-outlined text-3xl">shopping_bag</span>
-        <div className="absolute -top-1 -right-1 bg-secondary text-white w-6 h-6 rounded-full text-xs flex items-center justify-center border-2 border-white">
-          3
-        </div>
-      </button>
+      <FloatingCartButton />
     </>
   );
 }
