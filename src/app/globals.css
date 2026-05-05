@@ -93,10 +93,10 @@
 .dark {
   --color-background: #0f1114;
   --color-on-background: #f9f9fd;
-  --color-surface: #1a1c1f;
-  --color-on-surface: #f9f9fd;
-  --color-surface-variant: #4d4d4d;
-  --color-on-surface-variant: #d9dade;
+  --color-surface: #1e2124;
+  --color-on-surface: #ffffff;
+  --color-surface-variant: #2d3135;
+  --color-on-surface-variant: #e2e2e6;
   --color-primary: #ff8c00;
   --color-on-primary: #ffffff;
   --color-primary-container: #d43f00;

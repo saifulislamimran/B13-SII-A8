@@ -42,7 +42,7 @@ export default function CartDrawer() {
           <h2 className="font-headline-md text-2xl text-on-surface">Your Cart</h2>
           <button 
             onClick={toggleCart}
-            className="w-10 h-10 rounded-full flex items-center justify-center glass-panel hover:bg-white/20 transition-colors"
+            className="w-10 h-10 rounded-full flex items-center justify-center glass-panel hover:bg-white/20 transition-colors text-slate-600 dark:text-white"
           >
             <span className="material-symbols-outlined">close</span>
           </button>
@@ -83,14 +83,14 @@ export default function CartDrawer() {
                     <div className="flex items-center bg-white/30 dark:bg-white/10 rounded-full overflow-hidden border border-white/20">
                       <button 
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="w-8 h-8 flex items-center justify-center hover:bg-white/40 transition-colors"
+                        className="w-8 h-8 flex items-center justify-center hover:bg-white/40 transition-colors text-slate-800 dark:text-white"
                       >
                         -
                       </button>
-                      <span className="w-8 text-center text-sm font-bold">{item.quantity}</span>
+                      <span className="w-8 text-center text-sm font-bold text-slate-900 dark:text-white">{item.quantity}</span>
                       <button 
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="w-8 h-8 flex items-center justify-center hover:bg-white/40 transition-colors"
+                        className="w-8 h-8 flex items-center justify-center hover:bg-white/40 transition-colors text-slate-800 dark:text-white"
                       >
                         +
                       </button>

@@ -71,7 +71,7 @@ export default function ProfilePage() {
               <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
                 <div className="h-full sunset-gradient w-[75%]"></div>
               </div>
-              <p className="text-[10px] text-slate-500 mt-2 text-center">250 points until Platinum status</p>
+              <p className="text-[10px] text-slate-600 dark:text-slate-400 mt-2 text-center">250 points until Platinum status</p>
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function ProfilePage() {
               <div key={stat.label} className="glass-panel p-4 rounded-xl bg-white/40 dark:bg-black/20 border-white/20 dark:border-white/5 hover:bg-white/50 dark:hover:bg-black/30 transition-all cursor-default">
                 <span className="material-symbols-outlined text-orange-500 dark:text-orange-400 mb-2">{stat.icon}</span>
                 <p className="text-2xl font-black text-slate-900 dark:text-white">{stat.value}</p>
-                <p className="text-[10px] text-slate-500 dark:text-slate-500 uppercase tracking-widest">{stat.label}</p>
+                <p className="text-[10px] text-slate-600 dark:text-slate-400 uppercase tracking-widest">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -105,7 +105,7 @@ export default function ProfilePage() {
                   </div>
                   <div className="flex-grow">
                     <p className="text-slate-900 dark:text-white font-bold">{i === 1 ? 'Order Delivered' : 'Item in Wishlist'}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-500">Premium Beach Set • 2 days ago</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">Premium Beach Set • 2 days ago</p>
                   </div>
                   <span className="material-symbols-outlined text-slate-400 dark:text-slate-600 group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">chevron_right</span>
                 </div>

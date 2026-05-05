@@ -45,8 +45,8 @@ export default function Home() {
       <section className="py-stack-lg px-margin-mobile md:px-margin-desktop container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-2">Summer Essentials</h2>
-            <p className="font-body-md text-body-md text-on-surface-variant">Our most-loved picks for the golden hour.</p>
+            <h2 className="font-headline-lg text-headline-lg text-slate-900 dark:text-white mb-2">Summer Essentials</h2>
+            <p className="font-body-md text-body-md text-slate-600 dark:text-slate-400">Our most-loved picks for the golden hour.</p>
           </div>
           <Link href="/products" className="text-primary font-label-bold flex items-center gap-2 mt-4 md:mt-0 hover:underline">
             View All <span className="material-symbols-outlined">chevron_right</span>
@@ -74,9 +74,9 @@ export default function Home() {
                     {product.rating}
                   </div>
                 </div>
-                <h3 className="font-headline-md text-headline-md text-on-surface mb-2">{product.name}</h3>
-                <div className="flex justify-between items-center mt-auto pt-4">
-                  <span className="text-primary font-bold text-xl">${product.price.toFixed(2)}</span>
+                <h3 className="font-headline-md text-headline-md text-slate-900 dark:text-white mb-2 line-clamp-1">{product.name}</h3>
+                <div className="flex justify-between items-center mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                  <span className="text-orange-600 dark:text-orange-500 font-bold text-xl">${product.price.toFixed(2)}</span>
                   <div className="flex items-center gap-2">
                     <Link href={`/product/${product.id}`} className="bg-primary text-white px-4 py-2 rounded-lg flex items-center justify-center text-sm font-bold hover:bg-orange-700 transition-colors">
                       View
@@ -100,23 +100,23 @@ export default function Home() {
           <p className="font-body-md text-body-md text-slate-600 dark:text-slate-400">Expert hydration and skincare advice for the ultimate coastal lifestyle.</p>
         </div>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="flex gap-6 items-start glass-panel p-8 rounded-2xl">
+          <div className="flex gap-6 items-start glass-panel p-8 rounded-2xl bg-white/40 dark:bg-black/20">
             <div className="bg-primary-container text-on-primary-container p-4 rounded-full flex-shrink-0">
               <span className="material-symbols-outlined text-3xl">water_drop</span>
             </div>
             <div>
-              <h3 className="font-headline-md text-headline-md text-on-surface mb-3">Deep Hydration Rituals</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-4">Maintain your skin's moisture barrier with our sea-mineral infused serums. Reapply after every swim for a lasting dewy finish.</p>
+              <h3 className="font-headline-md text-headline-md text-slate-900 dark:text-white mb-3">Deep Hydration Rituals</h3>
+              <p className="font-body-md text-body-md text-slate-700 dark:text-slate-400 mb-4">Maintain your skin's moisture barrier with our sea-mineral infused serums. Reapply after every swim for a lasting dewy finish.</p>
               <Link href="#" className="text-primary font-label-bold border-b border-primary pb-1 hover:text-primary-container transition-colors">Read Guide</Link>
             </div>
           </div>
-          <div className="flex gap-6 items-start glass-panel p-8 rounded-2xl">
+          <div className="flex gap-6 items-start glass-panel p-8 rounded-2xl bg-white/40 dark:bg-black/20">
             <div className="bg-secondary text-on-secondary p-4 rounded-full flex-shrink-0">
               <span className="material-symbols-outlined text-3xl">health_and_safety</span>
             </div>
             <div>
-              <h3 className="font-headline-md text-headline-md text-on-surface mb-3">UV Defense Strategy</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-4">Sunscreen isn't just for the beach. Learn how to layer SPF with your makeup for full-spectrum protection against photo-aging.</p>
+              <h3 className="font-headline-md text-headline-md text-slate-900 dark:text-white mb-3">UV Defense Strategy</h3>
+              <p className="font-body-md text-body-md text-slate-700 dark:text-slate-400 mb-4">Sunscreen isn't just for the beach. Learn how to layer SPF with your makeup for full-spectrum protection against photo-aging.</p>
               <Link href="#" className="text-primary font-label-bold border-b border-primary pb-1 hover:text-primary-container transition-colors">Safety Tips</Link>
             </div>
           </div>

@@ -37,9 +37,9 @@ export default function ProductsPage() {
                   {product.rating}
                 </div>
               </div>
-              <h3 className="font-headline-md text-lg text-on-surface mb-2">{product.name}</h3>
-              <div className="flex justify-between items-center mt-auto pt-4">
-                <span className="text-primary font-bold">${product.price.toFixed(2)}</span>
+              <h3 className="font-headline-md text-lg text-slate-900 dark:text-white mb-2 line-clamp-1">{product.name}</h3>
+              <div className="flex justify-between items-center mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                <span className="text-orange-600 dark:text-orange-500 font-bold">${product.price.toFixed(2)}</span>
                 <div className="flex items-center gap-2">
                   <Link href={`/product/${product.id}`} className="bg-primary/10 text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-lg flex items-center justify-center text-sm font-bold transition-colors duration-300">
                     View
