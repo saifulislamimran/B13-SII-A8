@@ -1,0 +1,112 @@
+[
+  {
+    "id": "prod-1",
+    "name": "Invisible Shield SPF 50",
+    "brand": "Lumina",
+    "price": 34.00,
+    "rating": 4.9,
+    "stock": 120,
+    "description": "Maintain your skin's moisture barrier with our sea-mineral infused serums. Reapply after every swim for a lasting dewy finish.",
+    "image": "https://lh3.googleusercontent.com/aida/ADBb0ug6SM5NO0Q_nXzt5uFc-GihTttiYA4N5jkPWRxO1NDju-N3KR2GLgR_ps_3_IyD1TngBGUGlOnqwau9-Svg5BbK2ko2L77LLZHyPdwjaD0Rfvd4h7Sdy-n2tUX2sqfD3w4xj7ewIeAzZMiZL8c7csfs5ZoRg00rn0RIsIQTHwKGB3eBNLPP7nJoApKrVoXa7rlVDGrgJUFEJiC1q4Y3RvSwtxPlRguGwAVrUY_LGytYy8kbTgzorAsfME_Fahb2oXoIwDixFWHizIQ",
+    "category": "SKINCARE"
+  },
+  {
+    "id": "prod-2",
+    "name": "Artisan Coastal Tote",
+    "brand": "Azure",
+    "price": 125.00,
+    "rating": 4.8,
+    "stock": 45,
+    "description": "A handcrafted, luxury straw tote bag with fine leather handles.",
+    "image": "https://lh3.googleusercontent.com/aida/ADBb0uikQmern3DYn4QUVvTlf2K0GK7NSkVwG2R5ZV6_Yq_gem97B3QPqvw_wbeydb7J6eHJuLDwGIi8XIPC_xbd4Y_zCxz2ynU9CTd1Pg2SRBlKgrcTXe1mDe_x-tQyaFseDUfP5xikW1O_RD_-ef4XwErTV0FqvzGIFPwTqjpnMKHbW1V-EejKS_-niBVWEqoXwp-vHzIvqUf1-3LRkXaKVDARrPQIQfjXGHXLLhQqw3WbY3NqhfD4ho4q1Ec1txiEukC-EFyVYfKWDA",
+    "category": "ACCESSORIES"
+  },
+  {
+    "id": "prod-3",
+    "name": "Tropical Silk Sarong",
+    "brand": "Coral",
+    "price": 89.00,
+    "rating": 4.7,
+    "stock": 80,
+    "description": "A vibrant, high-fashion silk beach sarong with a bold tropical print.",
+    "image": "https://lh3.googleusercontent.com/aida/ADBb0ugNNWGu-sTuq5RXESH1cmGkjHjjOcwWt5vWTl5frBtAqrXc8CBa7Txgw-cI9woCP85tlKWYxRChZ-vi-YSspxq_Eu2xz8MMFO8BkBztbH3nwWbEEZb-etylsGawkQjBHWnDbfbKkkC28RAt3i0hGFUl_QHD-EZipg_ba5BON2fk6w9hUoBY4RQOS1r5cFx0xVXo8d_dIc10b_52gKbn2S1N8EIcl18gHKJPCGnysSbnA1OPLIbcNTIut4BNhphj0eqVTxKyl6EZ_TU",
+    "category": "APPAREL"
+  },
+  {
+    "id": "prod-4",
+    "name": "Tortoiseshell Oversized Sunglasses",
+    "brand": "Soleil",
+    "price": 150.00,
+    "rating": 4.9,
+    "stock": 30,
+    "description": "Premium UV400 protection with classic tortoiseshell frames.",
+    "image": "https://lh3.googleusercontent.com/aida/ADBb0ugyhwtCGBySHuNo7Wt-0-5Mi-IrGDmWHaySSjKSiirgtgr0oFdiv2mT1-_tTFfkVM1ueFbwwUr3FutbWVM0ZCQXGqbLeaWdCPF4HtywuSXUg6XcX6VYXhEEKC19A24UwrbZwDaHgW2TT04Vqc8wfRRFopma-LEtJPFf8cP2m4VL5MbSBG3ix8GsRhwwburovGKo6qy30cw3BA2fcWckl7a9NZtEpyKr_aAKWv_0wyNCFORxd6B4Vorl9iJgMpdBuP4YHPTlTUSs_W0",
+    "category": "ACCESSORIES"
+  },
+  {
+    "id": "prod-5",
+    "name": "Hydrating Aloe Mist",
+    "brand": "Lumina",
+    "price": 28.00,
+    "rating": 4.6,
+    "stock": 150,
+    "description": "Cooling facial mist for immediate sun relief.",
+    "image": "https://lh3.googleusercontent.com/aida/ADBb0uhE-aeS3p2djkMcxuglYVqPW85r1zGumTGeFDEx83p-A3rw6TAzf2ksglv0ZjtAHGqhRTWaArRTYTfAF5Eqzn2oRsoHTFibUHQ8GGCcrpj3HLZTmefNvqrpu1GeUD07h2DK_fUXcqNYRCsQHwkmtBxZ264s9hsqSttvmxt7Tvg1FxHeUMHh2BjbiSHPqLaVlwSpeHBXxaLau3_4rZaMd-dhs5fGatPDiBSPQWGnBsV459qcajLiXWnHErEg6TFii6Ujj75_T2kCA4o",
+    "category": "SKINCARE"
+  },
+  {
+    "id": "prod-6",
+    "name": "Linen Beach Shirt",
+    "brand": "Tropic",
+    "price": 65.00,
+    "rating": 4.5,
+    "stock": 90,
+    "description": "Breathable 100% pure linen shirt perfect for summer evenings.",
+    "image": "https://lh3.googleusercontent.com/aida/ADBb0ug6SM5NO0Q_nXzt5uFc-GihTttiYA4N5jkPWRxO1NDju-N3KR2GLgR_ps_3_IyD1TngBGUGlOnqwau9-Svg5BbK2ko2L77LLZHyPdwjaD0Rfvd4h7Sdy-n2tUX2sqfD3w4xj7ewIeAzZMiZL8c7csfs5ZoRg00rn0RIsIQTHwKGB3eBNLPP7nJoApKrVoXa7rlVDGrgJUFEJiC1q4Y3RvSwtxPlRguGwAVrUY_LGytYy8kbTgzorAsfME_Fahb2oXoIwDixFWHizIQ",
+    "category": "APPAREL"
+  },
+  {
+    "id": "prod-7",
+    "name": "Wide Brim Straw Hat",
+    "brand": "Soleil",
+    "price": 45.00,
+    "rating": 4.8,
+    "stock": 60,
+    "description": "Classic woven straw hat offering maximum sun coverage.",
+    "image": "https://lh3.googleusercontent.com/aida/ADBb0uikQmern3DYn4QUVvTlf2K0GK7NSkVwG2R5ZV6_Yq_gem97B3QPqvw_wbeydb7J6eHJuLDwGIi8XIPC_xbd4Y_zCxz2ynU9CTd1Pg2SRBlKgrcTXe1mDe_x-tQyaFseDUfP5xikW1O_RD_-ef4XwErTV0FqvzGIFPwTqjpnMKHbW1V-EejKS_-niBVWEqoXwp-vHzIvqUf1-3LRkXaKVDARrPQIQfjXGHXLLhQqw3WbY3NqhfD4ho4q1Ec1txiEukC-EFyVYfKWDA",
+    "category": "ACCESSORIES"
+  },
+  {
+    "id": "prod-8",
+    "name": "After-Sun Lotion",
+    "brand": "Azure",
+    "price": 32.00,
+    "rating": 4.7,
+    "stock": 110,
+    "description": "Soothing formula with vitamin E to repair sun-exposed skin.",
+    "image": "https://lh3.googleusercontent.com/aida/ADBb0ugNNWGu-sTuq5RXESH1cmGkjHjjOcwWt5vWTl5frBtAqrXc8CBa7Txgw-cI9woCP85tlKWYxRChZ-vi-YSspxq_Eu2xz8MMFO8BkBztbH3nwWbEEZb-etylsGawkQjBHWnDbfbKkkC28RAt3i0hGFUl_QHD-EZipg_ba5BON2fk6w9hUoBY4RQOS1r5cFx0xVXo8d_dIc10b_52gKbn2S1N8EIcl18gHKJPCGnysSbnA1OPLIbcNTIut4BNhphj0eqVTxKyl6EZ_TU",
+    "category": "SKINCARE"
+  },
+  {
+    "id": "prod-9",
+    "name": "Woven Beach Towel",
+    "brand": "Coral",
+    "price": 55.00,
+    "rating": 4.9,
+    "stock": 85,
+    "description": "Oversized, ultra-absorbent premium cotton beach towel.",
+    "image": "https://lh3.googleusercontent.com/aida/ADBb0ugyhwtCGBySHuNo7Wt-0-5Mi-IrGDmWHaySSjKSiirgtgr0oFdiv2mT1-_tTFfkVM1ueFbwwUr3FutbWVM0ZCQXGqbLeaWdCPF4HtywuSXUg6XcX6VYXhEEKC19A24UwrbZwDaHgW2TT04Vqc8wfRRFopma-LEtJPFf8cP2m4VL5MbSBG3ix8GsRhwwburovGKo6qy30cw3BA2fcWckl7a9NZtEpyKr_aAKWv_0wyNCFORxd6B4Vorl9iJgMpdBuP4YHPTlTUSs_W0",
+    "category": "ACCESSORIES"
+  },
+  {
+    "id": "prod-10",
+    "name": "Men's Swim Trunks",
+    "brand": "Tropic",
+    "price": 58.00,
+    "rating": 4.6,
+    "stock": 75,
+    "description": "Quick-dry fabric with a comfortable fit and bold summer prints.",
+    "image": "https://lh3.googleusercontent.com/aida/ADBb0uhE-aeS3p2djkMcxuglYVqPW85r1zGumTGeFDEx83p-A3rw6TAzf2ksglv0ZjtAHGqhRTWaArRTYTfAF5Eqzn2oRsoHTFibUHQ8GGCcrpj3HLZTmefNvqrpu1GeUD07h2DK_fUXcqNYRCsQHwkmtBxZ264s9hsqSttvmxt7Tvg1FxHeUMHh2BjbiSHPqLaVlwSpeHBXxaLau3_4rZaMd-dhs5fGatPDiBSPQWGnBsV459qcajLiXWnHErEg6TFii6Ujj75_T2kCA4o",
+    "category": "APPAREL"
+  }
+]
